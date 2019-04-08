@@ -1,0 +1,36 @@
+## 对readme文件再次进行修改
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+## 保存并提交这个修改
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git add readme
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git commit -m"add GPL"
+[master 36d268a] add GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+## 现在我们就有了readme文件的三个版本，但是前两个版本已经被覆盖了，通过git log可以查看以前版本的修改信息；
+
+$ git log
+commit 36d268a095e1dffe0521ffa95a1d5e58c50d6a98 (HEAD -> master)
+Author: huotuichaodan <1959565006@qq.com>
+Date:   Mon Apr 8 11:44:07 2019 +0800
+
+    add GPL
+
+commit 5d4cbadc288cd1ce759502283de64bdc1468a98a
+Author: huotuichaodan <1959565006@qq.com>
+Date:   Mon Apr 8 11:14:58 2019 +0800
+
+    add a word
+
+commit d047e3abca7f65d6677e0e64738ba763220eaa07
+Author: huotuichaodan <1959565006@qq.com>
+Date:   Mon Apr 8 09:53:19 2019 +0800
+
+    wrote a readme file
+
+## 显示的关键信息就是当时“-m”之后的信息，所以每次git commit之后的“-m”不能省略且需要简洁明了，能够让人抓住重点；
+## commit之后的一长串是版本id，HEAD表示当前版本，
