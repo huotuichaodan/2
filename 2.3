@@ -1,0 +1,46 @@
+## 工作区就是在电脑上能看到的目录，我们能在里面添加修改删除文件；
+## 暂存区就是执行git add后文件所在的位置；在执行git commit后文件就被提交到了master分支上；
+## 修改readme文件，然后git add，再次修改，git commit，查看状态；
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git add readme
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git commit -m"git changes"
+[master 4055430] git changes
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+## 还有未提交的修改，再来查看差异；
+
+$ git diff readme
+diff --git a/readme b/readme
+index f602576..fd5ebf2 100644
+--- a/readme
++++ b/readme
+@@ -1,3 +1,4 @@
+ Git is a distributed version control system.
+ Git is free software distributed under the GPL.
+-Git is the best language all over the world.
+\ No newline at end of file
++Git is the best language all over the world.
++Git tracks changes.
+\ No newline at end of file
+
+## 说明第二次修改并没有提交，所以反复修改需要多次git add，或者在修改确认完成后再git add；git commit 只会提交暂存区的文件；
+
+## 撤销工作区修改用git checkout -- 文件名  ，该命令有两种情况，一是还在工作内，就会将文件恢复到未改时；二是在暂存区内，就会将文件恢复到刚添加进暂存区的样子；
+## 撤销已经添加到暂存区的修改用git reset HEAD 文件名 ，这个命令会将暂存区的文件退回到工作区，然后再根据上一条；
+## 如果想撤销的修改已经git commit，那么就返回版本；
+
+## 删除文件用git rm 文件名  ，删除文件也属于工作区操作，可以通过git checkout -- 文件名  来撤销删除，如果确认删除，用git commit 来保存；
