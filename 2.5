@@ -1,0 +1,51 @@
+##  HEAD 指的是当前指针，在之前的环节中它一直指向master；如果我们建立了一个新指针dev，并让HEAD指向dev，我们就建立了一个新分支，现在工作区的修改就是针对新分支了；
+## 通过git branch dev来建立；通过git checkout dev 来转换当前指针；这两句可以合并为一句 git checkout -b dev；
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git branch dev
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git checkout dev
+Switched to branch 'dev'
+
+## 查看当前分支信息git branch；
+
+$ git branch
+* dev
+  master
+## 当前分支会在前面标有星号；修改后切回master且合并；
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (dev)
+$ vi animal.txt
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (dev)
+$ git add animal.txt
+warning: LF will be replaced by CRLF in animal.txt.
+The file will have its original line endings in your working directory.
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (dev)
+$ git add animal.txt
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (dev)
+$ git commit -m"add pig"
+[dev cbead9a] add pig
+ 1 file changed, 2 insertions(+)
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (dev)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git merge dev
+Updating c31f04b..cbead9a
+Fast-forward
+ animal.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+##  删除分支git branch -d dev；
+
+$ git branch -d dev
+Deleted branch dev (was cbead9a).
+
+  
