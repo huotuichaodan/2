@@ -1,3 +1,60 @@
 # 2
 2.1
+## git status 命令；
 ## 创建一个readme.txt内容为Git is a version control system.Git is free software.添加进仓库；
+## 修改第一行内容，改为Git is a distributed version control system.
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+## status 命令是查看仓库当前状态，上面这段话说明了文件readme被修改过，但这个修改还没有被提交
+
+## git diff 命令；
+## 这个命令是查看文件到底修改了什么内容；
+
+$ git diff
+diff --git a/readme b/readme
+index d8036c1..013b5bc 100644
+--- a/readme
++++ b/readme
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+\ No newline at end of file
+
+## “-”号所指的是以前的版本，“+”号所指的是当前版本，没有标识符号就是没有改动；
+## git add 提交这个修改；在 git commit 之前还可以git status再次查看仓库当前状态；在git commit之后也可以git status再次查看；
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git add readme
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme
+
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git commit -m"add a word"
+[master 5d4cbad] add a word
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+## 第一个git status说明了即将被提交的文件是readme；第二个git status说明了没有需要提交的修改，整个工作是干净的；
+
+## 运用git status命令可以随时查看仓库状态，发现有修改，可以通过git diff来查看修改了那些内容。
