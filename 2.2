@@ -33,4 +33,22 @@ Date:   Mon Apr 8 09:53:19 2019 +0800
     wrote a readme file
 
 ## 显示的关键信息就是当时“-m”之后的信息，所以每次git commit之后的“-m”不能省略且需要简洁明了，能够让人抓住重点；
-## commit之后的一长串是版本id，HEAD表示当前版本，
+## commit之后的一长串是版本id，HEAD表示当前版本，HEAD^表示上个版本，HEAD~100表示上100个版本；
+
+$ git reset --hard HEAD^
+HEAD is now at d047e3a wrote a readme file
+
+## git reset 就是重置版本的命令；也可以git reset --hard id 就可以去到任意版本；
+
+$ git reset --hard 36d268a
+HEAD is now at 36d268a add GPL
+
+## 如果不记得id了，可以通过git reflog来查看命令历史；
+
+$ git reflog
+d047e3a (HEAD -> master) HEAD@{0}: reset: moving to HEAD^
+5d4cbad HEAD@{1}: reset: moving to HEAD^
+36d268a HEAD@{2}: commit: add GPL
+5d4cbad HEAD@{3}: commit: add a word
+d047e3a (HEAD -> master) HEAD@{4}: commit (initial): wrote a readme file
+
