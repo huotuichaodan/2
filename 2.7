@@ -1,0 +1,53 @@
+## 合并分支时，常用的是fast forward模式，但是这种模式下一旦删除分支，分支信息也就一起删除了，如果要禁用fast forward模式，可以使用--no-ff；
+
+$ git merge --no-ff -m"merge with no-ff" dev
+Merge made by the 'recursive' strategy.
+ readme | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+## 注意要写-m ，因为--no-ff会提交一个commit；
+
+$ git log --graph --pretty=oneline --abbrev-commit
+*   d2c82a6 (HEAD -> master) merge with no-ff
+|\
+| * 5d69b21 (dev) add merge
+|/
+*   cf143f5 (origin/master) conflict fixed
+|\
+| * 13d9531 AND simple
+* | bca1189 & simple
+|/
+* cbead9a add pig
+* c31f04b animal
+* 8bba286 a new file
+* 23c1adc rm test.txt
+* d3a2045 the test
+* 4055430 git changes
+* 36d268a add GPL
+* 5d4cbad add a word
+* d047e3a wrote a readme file
+
+## 删除Dev分支后
+
+$ git log --graph --pretty=oneline --abbrev-commit
+*   bfa624b (HEAD -> master) Merge branch 'dev'
+|\
+| * d31a80c add add
+* |   d2c82a6 merge with no-ff
+|\ \
+| |/
+| * 5d69b21 add merge
+
+## 信息依然保留。不使用--no-ff的情况：
+
+$ git log --graph --pretty=oneline --abbrev-commit
+* fe553fd (HEAD -> master, abc) del add
+*   bfa624b Merge branch 'dev'
+|\
+| * d31a80c add add
+* |   d2c82a6 merge with no-ff
+|\ \
+| |/
+| * 5d69b21 add merge
+
+## 分支删除后，没有保留分支信息
