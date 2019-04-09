@@ -1,0 +1,115 @@
+## 使用git tag v1.0来给最近的一次commit打上标签，也就是HEAD；
+或者通过git log来查看所有的commit信息，然后git tag ___ id ,来给某一次commit加上标签；
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag v1.0
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git rag
+git: 'rag' is not a git command. See 'git --help'.
+
+The most similar command is
+        tag
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag
+v1.0
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git log --graph --pretty=oneline --abbrev-commit
+* fe553fd (HEAD -> master, tag: v1.0, origin/master) del add
+*   bfa624b Merge branch 'dev'
+|\
+| * d31a80c add add
+* |   d2c82a6 merge with no-ff
+|\ \
+| |/
+| * 5d69b21 add merge
+|/
+*   cf143f5 conflict fixed
+|\
+| * 13d9531 AND simple
+* | bca1189 & simple
+|/
+* cbead9a add pig
+* c31f04b animal
+* 8bba286 a new file
+* 23c1adc rm test.txt
+* d3a2045 the test
+* 4055430 git changes
+* 36d268a add GPL
+* 5d4cbad add a word
+* d047e3a wrote a readme file
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag v0.9 cbead9a
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ gig tag
+bash: gig: command not found
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag
+v0.9
+v1.0
+
+## git show v1.0可以查看版本信息；
+
+$ git show v1.0
+commit fe553fda6a89dc31f64662c34ebb885ed9d8d56c (HEAD -> master, tag: v1.0, origin/master)
+Author: huotuichaodan <1959565006@qq.com>
+Date:   Tue Apr 9 10:52:47 2019 +0800
+
+    del add
+
+diff --git a/readme b/readme
+index 2fd5bff..0963247 100644
+--- a/readme
++++ b/readme
+@@ -11,4 +11,3 @@ Creating a new branch is quick and simple.
+
+ merge
+
+-add
+
+##还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字；
+
+$ git tag -a v1.1 -m"1234567" bfa624b
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git show v1.1
+tag v1.1
+Tagger: huotuichaodan <1959565006@qq.com>
+Date:   Tue Apr 9 13:24:53 2019 +0800
+
+1234567
+
+commit bfa624b831d9e57ba65f5ecd360588b72840dd3f (tag: v1.1)
+Merge: d2c82a6 d31a80c
+Author: huotuichaodan <1959565006@qq.com>
+Date:   Tue Apr 9 10:44:28 2019 +0800
+
+    Merge branch 'dev'
+
+##命令git push origin <tagname>可以推送一个本地标签；
+命令git push origin --tags可以推送全部未推送过的本地标签；
+命令git tag -d <tagname>可以删除一个本地标签；
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+
+$ git tag
+v0.9
+v1.0
+v1.1
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was fe553fd)
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git tag
+v0.9
+v1.1
+
