@@ -1,0 +1,13 @@
+## 用git remote -v可以看到可以提取或者推送的地址
+
+$ git remote -v
+origin  git@github.com:huotuichaodan/learngit.git (fetch)
+origin  git@github.com:huotuichaodan/learngit.git (push)
+
+## 在所有分支中，master分支是主干，需要时刻与远程端同步；dev是开发分支，也需要经常同步；其他的分支，只要不上传，其他人是看不到的；
+
+## 从远程端克隆时，只会有master分支，如果要建立dev分支需要git check out -b dev origin/dev;
+## 现在就可以将dev分支进行push了：git push origin dev；
+
+## 当分支push有冲突时，可以先git pull，从远程获取最新的提交；在此之前还需要将远程分支和本地分支关联起来，git branch --set-upstream-to=origin/dev dev;
+获取完成后，就可以通过解决本地分支冲突的办法来解决；解决完成后再push；
