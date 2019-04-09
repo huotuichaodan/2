@@ -1,0 +1,102 @@
+## 冲突的产生
+由于两个已经提交的分支对相同文件的相同位置进行了不同的操作，在分支合并时就会产生冲突；
+冲突可以手动操作解决；
+
+<<<<<<< HEAD
+Creating a new branch is quick & simple.
+=======
+Creating a new branch is quick AND simple.
+>>>>>>> feature1
+
+## 两个箭头表示产生冲突的两个分支名；里面是产生冲突的内容；
+## 解决完冲突后再提交，可以git log --graph查看分支合并情况（$ git log --graph --pretty=oneline --abbrev-commit）；
+
+$ git log --graph --pretty=oneline --abbrev-commit
+*   cf143f5 (HEAD -> master, origin/master) conflict fixed
+|\
+| * 13d9531 AND simple
+* | bca1189 & simple
+|/
+* cbead9a add pig
+* c31f04b animal
+* 8bba286 a new file
+* 23c1adc rm test.txt
+* d3a2045 the test
+* 4055430 git changes
+* 36d268a add GPL
+* 5d4cbad add a word
+* d047e3a wrote a readme file
+
+$ git log --graph
+*   commit cf143f56e59fa4535936ad6551a6fc5ca467ae6d (HEAD -> master, origin/master)
+|\  Merge: bca1189 13d9531
+| | Author: huotuichaodan <1959565006@qq.com>
+| | Date:   Tue Apr 9 09:58:40 2019 +0800
+| |
+| |     conflict fixed
+| |
+| * commit 13d95318dd4795bf64d227f02901abfba2845403
+| | Author: huotuichaodan <1959565006@qq.com>
+| | Date:   Tue Apr 9 09:42:33 2019 +0800
+| |
+| |     AND simple
+| |
+* | commit bca1189de12209dbd7f0daf57af427aa9adaf324
+|/  Author: huotuichaodan <1959565006@qq.com>
+|   Date:   Tue Apr 9 09:45:06 2019 +0800
+|
+|       & simple
+|
+* commit cbead9a3f86e4eaa6c302770fd6a2f56a3f15ac2
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 17:00:59 2019 +0800
+|
+|     add pig
+|
+* commit c31f04b04630a86c8cb2fa9360b08d9e02d71b20
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 16:11:45 2019 +0800
+|
+|     animal
+|
+* commit 8bba28622291feb4d0a8ce2330b9f79587adcfa6
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 15:51:27 2019 +0800
+|
+|     a new file
+|
+* commit 23c1adc697092a50494b93b13370331cd289b663
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 15:17:04 2019 +0800
+|
+|     rm test.txt
+|
+* commit d3a20458848afb9c8c9cb50d1b80d4cf0ddf842a
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 15:14:54 2019 +0800
+|
+|     the test
+|
+* commit 4055430a9b6601f916640d33beb559c7e603f1da
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 14:29:44 2019 +0800
+|
+|     git changes
+|
+* commit 36d268a095e1dffe0521ffa95a1d5e58c50d6a98
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 11:44:07 2019 +0800
+|
+|     add GPL
+|
+* commit 5d4cbadc288cd1ce759502283de64bdc1468a98a
+| Author: huotuichaodan <1959565006@qq.com>
+| Date:   Mon Apr 8 11:14:58 2019 +0800
+|
+|     add a word
+|
+* commit d047e3abca7f65d6677e0e64738ba763220eaa07
+  Author: huotuichaodan <1959565006@qq.com>
+  Date:   Mon Apr 8 09:53:19 2019 +0800
+
+      wrote a readme file
