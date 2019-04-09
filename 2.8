@@ -1,0 +1,53 @@
+## bug总是难免的，遇到bug时最好建立一个新分支，通过合并来解决，最后删除这个分支；
+## 出现bug需要立刻解决时，可能手头上有未完成的任务，这时可以通过git stash来临时储存，使用这个命令后，工作区就变成干净的了；
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git stash
+Saved working directory and index state WIP on master: fe553fd del add
+
+xh@DESKTOP-HO0HI6U MINGW64 ~/Desktop/git/learngit (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+## 解决临时问题后，可以通过git stash list来查看临时储存信息，然后git stash apply stash@{0}来提取信息，git stash drop来删除储存的信息；
+或者当只有一条储存信息时，可以直接git stash pop来提取并删除这个信息；
+
+$ git stash list
+stash@{0}: WIP on master: fe553fd del add
+
+$ git stash apply stash@{0}
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git stash drop
+Dropped refs/stash@{0} (3dbb8c7b759e8a92a65b525142f65326febdda46)
+
+$ git stash list
+
+## 再次git stash list 已经没有了信息；
