@@ -1,0 +1,15 @@
+## 要为程序添加新功能也要建立新分支，通过合并分支来拓展功能；
+## 新功能分支建立好后，突然又不需要了，这时删除分支要用到git branch -D 分支名；
+
+$ git branch -d abc
+error: The branch 'abc' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D abc'.
+
+## 小写d 会报错；
+
+$ git branch -D abc
+Deleted branch abc (was e57aa47).
+
+## 大写D就能成功删除了；
+
+## 适用于分支有改动，但尚未合并时，删除分支；
