@@ -1,6 +1,6 @@
 # 2
 ## 创建仓库，添加文件
-2.0
+[2.0](https://github.com/huotuichaodan/2/blob/master/2.0)
 ## 查看仓库状态，确定修改内容
 2.1
 ## 版本回退
